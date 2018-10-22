@@ -15,7 +15,7 @@ class AddressBook {
 
     display(){
         let elements = document.getElementsByClassName("contact-info");
-        // console.log("elements size: " + elements.length);
+        
         while(elements.length > 0){
             elements[0].parentNode.removeChild(elements[0]);
         }
@@ -38,33 +38,15 @@ class AddressBook {
             
             document.body.appendChild(contactsContainer);
         }
-
-        // console.log("yo" + " " + deleteContact);
-        // removePerson();
-
-        // console.log(deleteContact);
     }
 }
-
+// Removes contact 
 function removePerson(index){
-        // let parentContact = document.getElementsByClassName("contact-info");
-        // parentContact.removeChild(deleteContact);
-        // console.log(deleteContact);
-        // console.log("yo" + " " + parentContact);
         book.deleteAt();
         console.log(index);
         console.log("clique");
         book.display();
     }
-
-// function removePerson(){
-//     let parentContact = document.getElementsByClassName("contact-info");
-//     let childContact = document.querySelectorAll("#id");
-//     parentContact.removeChild(childContact);
-//     console.log()
-//     console.log("yo" + " " + parentContact);
-//     console.log("clique");
-// }
 
 class Contact {
     constructor(name, email, phone, relation) {
@@ -77,14 +59,12 @@ class Contact {
 
 let book = new AddressBook();
 
-// --- Add contacts from form after pressing 'add button'---
+// Add contacts from form after pressing 'add button'
 document
     .querySelector("#add-btn")
     .addEventListener("click", () => {
-    // console.log("added!");
+    
     const inputs = document.querySelectorAll(".contact-input");
-    // console.log("yo yo yo" + " " + inputs);
-    // console.log("inputs[0]: " + inputs[0].value);
     let name = inputs[0].value;
     let email = inputs[1].value;
     let phone = inputs[2].value;
@@ -95,32 +75,6 @@ document
     book.display();
     });
 ;
-
-// book.deleteAt(index);
-
-// --- onClick in innerHTML ---
-// const removeContactId = (newIdNum, section) => {
-//     console.log("clicky");
-
-//     let r = document.getElementById(newIdNum);
-//     let oldId = document.getElementById(section);
-//     r.removeChild(oldId);
-// }
-
-// function removeElement(divNum,div) {
-//     var d = document.getElementById(divNum);
-//     var olddiv = document.getElementById(div);
-//     d.removeChild(olddiv);
-//   }
-
-
-
-
-// function myFunction () {
-//     let newId = document.querySelectorAll(".contact-input");
-//     // newId.removeChild(newId.childNodes[0]);
-//     console.log("hiiii" + " " + newId.length);
-// }
 
 book.display();
 
