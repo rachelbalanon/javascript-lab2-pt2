@@ -7,18 +7,11 @@ class AddressBook {
     
     add(info) {
         this.contacts.push(info);
-        // console.log("contacts size: " + this.contacts.length);
     }
     
     deleteAt(index){
         this.contacts.splice(index, 1)
     }
-
-    // print(){
-    //     for (let contact of this.contacts) {
-    //         console.log(contact);
-    //     }
-    // }
 
     display(){
         let elements = document.getElementsByClassName("contact-info");
@@ -26,49 +19,52 @@ class AddressBook {
         while(elements.length > 0){
             elements[0].parentNode.removeChild(elements[0]);
         }
+
         for (let i = 0; i < this.contacts.length; i++) {
         
             const contactsContainer = document.createElement("section");
             contactsContainer.className = "contact-info"
             contactsContainer.id = i.toString();
+            contactsContainer.id = `person${i}`;
             contactsContainer.innerHTML = `
             <p>Name: ${this.contacts[i].name}</p>
             <p>E-mail: ${this.contacts[i].email}</p>
             <p>Phone: ${this.contacts[i].phone}</p>
             <p>Relation: ${this.contacts[i].relation}</p>
             <section class="contact-container">
-                <i class="material-icons md-24">delete</i>
+                <i class="material-icons md-24" onClick="removePerson(${[i]});">delete</i>
             </section>
             `;
             
             document.body.appendChild(contactsContainer);
-
-        //    const deleteBtn = document.getElementsByClassName("material-icons");
-        //    deleteBtn.addEventListener("click", () => {
-        //        const trash = document.querySelectorAll("")
-        //        console.log("deleted!");
-                // book.deleteAt(index);
-        //    });
-
-            let contactList = document.getElementById("");
-            console.log(contactList);
-            
-            document 
-                .querySelector(".material-icons")
-                .addEventListener("click", () => {
-                console.log("clicked!");
-            
-                // book.deleteAt(index);
-
-                // book.display();
-                });
-
-            ;
         }
-        
+
+        // console.log("yo" + " " + deleteContact);
+        // removePerson();
+
+        // console.log(deleteContact);
     }
 }
 
+function removePerson(index){
+        // let parentContact = document.getElementsByClassName("contact-info");
+        // parentContact.removeChild(deleteContact);
+        // console.log(deleteContact);
+        // console.log("yo" + " " + parentContact);
+        book.deleteAt();
+        console.log(index);
+        console.log("clique");
+        book.display();
+    }
+
+// function removePerson(){
+//     let parentContact = document.getElementsByClassName("contact-info");
+//     let childContact = document.querySelectorAll("#id");
+//     parentContact.removeChild(childContact);
+//     console.log()
+//     console.log("yo" + " " + parentContact);
+//     console.log("clique");
+// }
 
 class Contact {
     constructor(name, email, phone, relation) {
@@ -100,41 +96,31 @@ document
     });
 ;
 
-// Delete contact icons
-// document 
-//     .querySelector(".material-icons md-24")
-//     .addEventListener("click", () => {
-//         console.log("clicked!");
-    
-//         book.deleteAt(index);
+// book.deleteAt(index);
 
-//         book.display();
-//     });
+// --- onClick in innerHTML ---
+// const removeContactId = (newIdNum, section) => {
+//     console.log("clicky");
 
-// ;
+//     let r = document.getElementById(newIdNum);
+//     let oldId = document.getElementById(section);
+//     r.removeChild(oldId);
+// }
 
-// document 
-//     .querySelector(".delete-icon-2")
-//     .addEventListener("click", () => {
-//         console.log("clicked!");
-    
-//         // book.deleteAt(index);
-//         // book.display();
-//     });
+// function removeElement(divNum,div) {
+//     var d = document.getElementById(divNum);
+//     var olddiv = document.getElementById(div);
+//     d.removeChild(olddiv);
+//   }
 
-// ;
 
-// document 
-//     .querySelector(".delete-icon-3")
-//     .addEventListener("click", () => {
-//         console.log("clicked!");
-    
-//         // book.deleteAt(index);
-//         // book.display();
-//     });
 
-// ;
 
+// function myFunction () {
+//     let newId = document.querySelectorAll(".contact-input");
+//     // newId.removeChild(newId.childNodes[0]);
+//     console.log("hiiii" + " " + newId.length);
+// }
 
 book.display();
 
