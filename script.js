@@ -45,7 +45,7 @@ class AddressBook {
 function removePerson(index){
         book.deleteAt();
         console.log(index);
-        console.log("clique");
+        // console.log("clique");
         book.display();
     }
 
