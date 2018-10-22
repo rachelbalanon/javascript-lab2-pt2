@@ -40,6 +40,7 @@ class AddressBook {
         }
     }
 }
+
 // Removes contact 
 function removePerson(index){
         book.deleteAt();
